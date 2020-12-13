@@ -25,8 +25,8 @@ interface Options {
 
 export default (opts: Options) => {
   // Initialize Consts
-  const width = window.innerWidth
-  const height = window.innerHeight
+  let width = window.innerWidth
+  let height = window.innerHeight
 
   // Return P5 Instance
   return (p5: P5) => {
@@ -41,8 +41,8 @@ export default (opts: Options) => {
 
       // Constructor
       constructor () {
-        this.x = p5.random(0, window.innerWidth)
-        this.y = p5.random(0, window.innerHeight)
+        this.x = p5.random(0, width)
+        this.y = p5.random(0, height)
         this.r = p5.random(
           opts?.dotSize?.min || 1,
           opts?.dotSize?.max || 8
@@ -67,8 +67,8 @@ export default (opts: Options) => {
       // Method to MoveParticle
       moveParticle () {
         // Invert Speed if Particle hits screen edge
-        if (this.x < 0 || this.x > window.innerWidth) this.xSpeed *= -1
-        if (this.y < 0 || this.y > window.innerHeight) this.ySpeed *= -1
+        if (this.x < 0 || this.x > width) this.xSpeed *= -1
+        if (this.y < 0 || this.y > height) this.ySpeed *= -1
 
         // Apply Movement Speed
         this.x += this.xSpeed
@@ -117,7 +117,9 @@ export default (opts: Options) => {
 
     // Window Resized
     p5.windowResized = () => {
-      p5.resizeCanvas(window.innerWidth, window.innerHeight)
+      width = window.innerWidth
+      height = window.innerHeight
+      p5.resizeCanvas(width, height)
     }
   }
 }

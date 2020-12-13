@@ -2,8 +2,8 @@ import P5 from 'p5'
 
 export default () => {
   // Init Consts
-  const width = window.innerWidth
-  const height = window.innerHeight
+  let width = window.innerWidth
+  let height = window.innerHeight
 
   return (p5: P5) => {
     // Initialize Snowflake List
@@ -62,6 +62,12 @@ export default () => {
         flake.update(t)
         flake.display()
       }
+    }
+
+    p5.windowResized = () => {
+      width = window.innerWidth
+      height = window.innerHeight
+      p5.resizeCanvas(width, height)
     }
   }
 }
