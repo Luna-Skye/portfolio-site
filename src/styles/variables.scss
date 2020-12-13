@@ -1,2 +1,42 @@
 //* ------------------------------------------------------- *//
 //* ------------------- SCSS VARIABLES -------------------- *//
+
+//*-------------------------------------------------------- *//
+// COLORS | MONOCHROME ------------------------------------  //
+$col-white    : #FFFFFF;
+$col-lightgray: #E5E5E5;
+$col-midgray  : #B2B2B2;
+$col-darkgray : #666666;
+$col-black    : #1A1A1A;
+
+// COLORS | ACCENT ----------------------------------------  //
+$col-blue  : #02D3FF;
+$col-purple: #9647FF;
+$col-yellow: #E9CB53;
+$col-green : #0BE448;
+$col-orange: #FF5500;
+$col-red   : #D01E1E;
+
+
+//*-------------------------------------------------------- *//
+// GRADIENTS ----------------------------------------------  //
+$grad-brand    : linear-gradient(90deg, $col-blue, $col-purple);
+$grad-elevotion: linear-gradient(90deg, #017DC0, #1EBDD2, #AFEDA2);
+$grad-proment  : linear-gradient(90deg, #4679E9, #08E1FF);
+$grad-ergo     : linear-gradient(105deg, #5460C0 0%, #801ED2 49.9%, #964CE8 50.1%, #972ED8 100%);
+
+
+//*-------------------------------------------------------- *//
+// ACRYLIC ------------------------------------------------  //
+$acrylic-color  : $col-black;
+$acrylic-opacity: 0.8;
+$acrylic-blur   : 24px;
+
+
+//*-------------------------------------------------------- *//
+// SPACING ------------------------------------------------  //
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 32px;
+$space-xl: 64px;

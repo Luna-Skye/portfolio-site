@@ -1,2 +1,115 @@
 //* ------------------------------------------------------- *//
 //* ----------------- SCSS GLOBAL STYLES ------------------ *//
+
+//*-------------------------------------------------------- *//
+// FONTS --------------------------------------------------- //
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+* { font-family: 'Open Sans', sans-serif; }
+
+
+//*-------------------------------------------------------- *//
+// FIX BODY MARGINS ---------------------------------------- //
+body { margin: 0; }
+
+
+//*---------------------------------------------------------*//
+// APP BACKGROUND ------------------------------------------ //
+html {
+	background: url('../assets/background.jpg');
+	background-size: cover;
+	height: 100vh;
+}
+
+
+//*---------------------------------------------------------*//
+// P5 CANVAS ----------------------------------------------- //
+.p5Canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+//*---------------------------------------------------------*//
+// APP VIEW ------------------------------------------------ //
+.view {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+
+//*---------------------------------------------------------*//
+// ACRYLIC ------------------------------------------------- //
+.acrylic {
+  background: rgba($acrylic-color, $acrylic-opacity);
+  @supports (backdrop-filter: blur()) {
+    backdrop-filter: blur($acrylic-blur);
+  }
+}
+
+
+//*---------------------------------------------------------*//
+// COLORS -------------------------------------------------- //
+.col-white     { color: $col-white; }
+.col-lightgray { color: $col-lightgray; }
+.col-midgray   { color: $col-midgray; }
+.col-darkgray  { color: $col-darkgray; }
+.col-black     { color: $col-black; }
+
+
+//*---------------------------------------------------------*//
+// TYPOGRAPHY ---------------------------------------------- //
+.text-h1 {
+  font-weight: 300;
+  font-size: 96px;
+}
+.text-h2 {
+  font-weight: 300;
+  font-size: 60px;
+}
+.text-panelheader {
+  font-size: 16px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+}
+.text-center { text-align: center; }
+
+
+//*---------------------------------------------------------*//
+// UTILITY CLASSES ----------------------------------------- //
+// Fit to Parent ------------------------------------------- //
+.fit {
+  width: 100%;
+  height: 100%;
+}
+.fit-h { width: 100%; }
+.fit-v { height: 100%; }
+
+// Positioning --------------------------------------------- //
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-top-0    { top: 0; }
+.position-left-0   { left: 0; }
+.position-bottom-0 { bottom: 0; }
+.position-right-0  { right: 0; }
+
+// Grid ---------------------------------------------------- //
+.grid {
+  display: grid;
+
+  > .grid-align-h-start   { justify-self: start; }
+  > .grid-align-h-center  { justify-self: center; }
+  > .grid-align-h-end     { justify-self: end; }
+  > .grid-align-h-stretch { justify-self: stretch; }
+  > .grid-align-v-start   { align-self: start; }
+  > .grid-align-v-center  { align-self: center; }
+  > .grid-align-v-end     { align-self: end; }
+  > .grid-align-v-stretch { align-self: stretch; }
+}
+
+// No User Select ------------------------------------------ //
+.no-select { user-select: none; }

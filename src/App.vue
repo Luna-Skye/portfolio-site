@@ -1,6 +1,7 @@
+//* ------------------------------------------------------- *//
+//  ------------------- HTML TEMPLATING -------------------  //
 <template>
   <div id="app">
-    <div id="header"></div>
-    <router-view/>
+    <router-view />
   </div>
 </template>

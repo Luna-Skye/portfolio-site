@@ -1,0 +1,87 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect x="256" y="68.7211" width="264.852" height="264.852" transform="rotate(45 256 68.7211)" fill="black" fill-opacity="0.5" stroke="white" stroke-width="4"/>
+<rect x="256" y="210.576" width="64.2391" height="64.2391" transform="rotate(45 256 210.576)" fill="white"/>
+<rect x="256" y="88.2024" width="237.302" height="237.302" transform="rotate(45 256 88.2024)" stroke="white" stroke-opacity="0.75" stroke-width="3"/>
+<rect x="256" y="104.88" width="213.716" height="213.716" transform="rotate(45 256 104.88)" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+<rect x="256" y="120.435" width="191.717" height="191.717" transform="rotate(45 256 120.435)" stroke="white" stroke-opacity="0.25"/>
+<g style="mix-blend-mode:lighten" filter="url(#filter0_f)">
+<rect x="256" y="156.18" width="141.167" height="141.167" transform="rotate(45 256 156.18)" fill="white"/>
+</g>
+<path d="M141.93 182.241L255.667 68.5047L190.848 4.11401L141.93 182.241Z" stroke="white" stroke-opacity="0.5" stroke-width="4"/>
+<path d="M371.031 328.797L256.333 443.495L321.162 507.896L371.031 328.797Z" stroke="white" stroke-opacity="0.5" stroke-width="4"/>
+<g style="mix-blend-mode:lighten">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="65" y="256" width="191" height="191">
+<g style="mix-blend-mode:overlay">
+<rect x="65.8927" y="256" width="190.107" height="190.107" fill="url(#paint0_linear)" fill-opacity="0.5"/>
+</g>
+</mask>
+<g mask="url(#mask0)">
+<rect x="65.8927" y="256" width="190.107" height="190.107" fill="white"/>
+</g>
+</g>
+<g style="mix-blend-mode:lighten">
+<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="65" y="65" width="191" height="191">
+<g style="mix-blend-mode:overlay">
+<rect x="256" y="65.8927" width="190.107" height="190.107" transform="rotate(90 256 65.8927)" fill="url(#paint1_linear)" fill-opacity="0.5"/>
+</g>
+</mask>
+<g mask="url(#mask1)">
+<rect x="256" y="65.8927" width="190.107" height="190.107" transform="rotate(90 256 65.8927)" fill="white"/>
+</g>
+</g>
+<g style="mix-blend-mode:lighten">
+<mask id="mask2" mask-type="alpha" maskUnits="userSpaceOnUse" x="256" y="65" width="191" height="191">
+<g style="mix-blend-mode:overlay">
+<rect x="446.107" y="256" width="190.107" height="190.107" transform="rotate(-180 446.107 256)" fill="url(#paint2_linear)" fill-opacity="0.5"/>
+</g>
+</mask>
+<g mask="url(#mask2)">
+<rect x="446.107" y="256" width="190.107" height="190.107" transform="rotate(-180 446.107 256)" fill="white"/>
+</g>
+</g>
+<g style="mix-blend-mode:lighten">
+<mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="256" y="256" width="191" height="191">
+<g style="mix-blend-mode:overlay">
+<rect x="256" y="446.107" width="190.107" height="190.107" transform="rotate(-90 256 446.107)" fill="url(#paint3_linear)" fill-opacity="0.5"/>
+</g>
+</mask>
+<g mask="url(#mask3)">
+<rect x="256" y="446.107" width="190.107" height="190.107" transform="rotate(-90 256 446.107)" fill="white"/>
+</g>
+</g>
+<g style="mix-blend-mode:overlay">
+<rect x="256" y="65.9999" width="268.701" height="268.701" transform="rotate(45 256 65.9999)" fill="url(#paint4_linear)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f" x="44.022" y="44.0219" width="423.956" height="423.956" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="56.0789" result="effect1_foregroundBlur"/>
+</filter>
+<linearGradient id="paint0_linear" x1="256" y1="256" x2="65.8927" y2="351.334" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="0.42375" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="446.107" y1="65.8927" x2="256" y2="161.227" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="0.42375" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear" x1="636.215" y1="256" x2="446.107" y2="351.334" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="0.42375" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear" x1="446.107" y1="446.107" x2="256" y2="541.441" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="0.42375" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint4_linear" x1="256" y1="200.35" x2="524.701" y2="200.35" gradientUnits="userSpaceOnUse">
+<stop stop-color="#02D3FF"/>
+<stop offset="1" stop-color="#9647FF"/>
+</linearGradient>
+<clipPath id="clip0">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+</defs>
+</svg>
