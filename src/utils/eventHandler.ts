@@ -5,33 +5,66 @@ import particles from '@/graphics/particles'
 import snowfall from '@/graphics/snowfall'
 
 //* ------------------------------------------------------- *//
-// RETURN EVENT NAME --------------------------------------  //
-export const getEventName = (): string => {
-  //* Get Current Date
-  const d = new Date()
-  const day = d.getDate()
-  const month = d.getMonth() + 1
-
-  //* Calculate and Return Event
-  if (month === 12 && (day === 24 || day === 25)) return 'CHRISTMAS'
-  if (month === 1 && day === 1) return 'NEWYEAR'
-
-  //* Else Return None
-  return 'NONE'
+// INTERFACES ---------------------------------------------  //
+interface DateObject {
+  d: number;
+  m: number;
+  y: number;
+}
+export interface EventObject {
+  title: string;
+  criteria?: boolean;
+  splash: string | string[];
+  p5: Array<(p5: P5) => void>;
 }
 
 //* ------------------------------------------------------- *//
-// RETURN P5 CANVAS FUNCTION ------------------------------  //
-export const getEventP5 = (): (p5: P5) => void => {
-  //* Fetch Event's Name
-  const event = getEventName()
+//  DEFINE EVENTS -----------------------------------------  //
+const eventCheck = (callback: (d: DateObject) => boolean) => {
+  const d = new Date()
+  const date = {
+    d: d.getDate(),
+    m: d.getMonth() + 1,
+    y: d.getFullYear()
+  }
+  return callback(date)
+}
 
-  if (event === 'CHRISTMAS') return snowfall()
-  // if (event === 'PRIDE') return particles({})
+//* ------------------------------------------------------- *//
+//  DEFINE EVENTS -----------------------------------------  //
+export const events: EventObject[] = [
+  { //* PRIDE MONTH --------------------------------------- *//
+    title: 'PRIDE',
+    criteria: eventCheck((d: DateObject) => (d.m === 6)),
+    splash: ['PROUD TO BE ME', 'TRANS PAN'],
+    p5: [particles({}), snowfall()]
+  },
+  { //* CHRISTMAS EVENT - SNOWFALL ------------------------ *//
+    title: 'CHRISTMAS',
+    criteria: eventCheck(
+      (d: DateObject) => (
+        d.m === 12 &&
+        (d.d === 24 || d.d === 25)
+      )
+    ),
+    splash: ['MERRY CHRISTMAS', 'HAPPY HOLIDAYS'],
+    p5: [snowfall()]
+  }
+]
 
-  //* DEFAULT SEPSHUN PARTICLES
-  return particles({
-    dotSize: { min: 0, max: 0.4 },
-    lineDist: 100
-  })
+//* ------------------------------------------------------- *//
+//  GET CURRENT EVENT ------------------------------------- *//
+export const getEvent = (): EventObject => {
+  // Check all Events and Return first applicable
+  for (const e in events) if (events[e].criteria) return events[e]
+
+  // Otherwise Return Default
+  return {
+    title: 'NONE',
+    splash: ['SOMEDAY', 'SEPSHUN'],
+    p5: [particles({
+      dotSize: { min: 0, max: 0.4 },
+      lineDist: 100
+    })]
+  }
 }

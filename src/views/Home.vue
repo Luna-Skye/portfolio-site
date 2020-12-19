@@ -23,16 +23,14 @@
             top: `${parallaxY / 60}px`,
             left: `${parallaxX / 60}px`
           }"
-        >{{ eventName === 'CHRISTMAS' ? 'MERRY CHRISTMAS' : 'SEPSHUN' }}</p>
+        >{{ Array.isArray(event.splash) ? event.splash[1] : event.splash }}</p>
         <p
           class="text-h2 col-white no-select --overlay"
           :style="{
             top: `${parallaxY / 40}px`,
             left: `${parallaxX / 40}px`
           }"
-        >{{
-          eventName === 'CHRISTMAS' ? 'MERRY CHRISTMAS' : 'SOMEDAY'
-        }}</p>
+        >{{ Array.isArray(event.splash) ? event.splash[0] : event.splash }}</p>
       </div>
     </div>
 
@@ -66,12 +64,16 @@
 //  --------------------- VUE SCRIPT ----------------------  //
 <script lang="ts">
 import P5 from 'p5'
-import { getEventName, getEventP5 } from '@/utils/eventHandler'
-
+import { getEvent, EventObject } from '@/utils/eventHandler'
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class Home extends Vue {
+  // ------------------------------------------------------ *//
+  // P5 Canvas List
+  p5Canvas: P5[] = []
+
+  // ------------------------------------------------------ *//
   // Parallax Offsets
   parallaxX = 0
   parallaxY = 0
@@ -80,14 +82,21 @@ export default class Home extends Vue {
     this.parallaxY = (event.clientY - (document.body.clientHeight) / 2)
   }
 
-  // Get EventName
-  get eventName (): string {
-    return getEventName()
+  // ------------------------------------------------------ *//
+  // COMPUTED | Get EventName
+  get event (): EventObject { return getEvent() }
+
+  // ------------------------------------------------------ *//
+  // LIFECYCLE | Created
+  created () {
+    // Create P5 Canvases
+    for (const i in getEvent().p5) this.p5Canvas.push(new P5(getEvent().p5[i]))
   }
 
-  // On Component Created
-  created () {
-    const canvas = new P5(getEventP5()) // Create P5 Canvas
+  // LIFECYCLE | Destroyed
+  beforeDestroy () {
+    // Remove All P5 Canvases
+    for (const i in this.p5Canvas) this.p5Canvas[i].remove()
   }
 }
 </script>
