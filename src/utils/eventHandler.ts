@@ -3,6 +3,7 @@
 import P5 from 'p5'
 import particles from '@/graphics/particles'
 import snowfall from '@/graphics/snowfall'
+import confetti from '@/graphics/confetti'
 
 //* ------------------------------------------------------- *//
 // INTERFACES ---------------------------------------------  //
@@ -49,6 +50,12 @@ export const events: EventObject[] = [
     ),
     splash: ['MERRY CHRISTMAS', 'HAPPY HOLIDAYS'],
     p5: [snowfall()]
+  },
+  { //* NEW YEARS EVENT - CONFETTI ------------------------ *//
+    title: 'NEW YEARS',
+    criteria: eventCheck((d: DateObject) => (d.m === 1 && d.d === 1)),
+    splash: ['HAPPY NEW YEAR', '2021'],
+    p5: [confetti()]
   }
 ]
 

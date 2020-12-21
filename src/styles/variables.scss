@@ -40,3 +40,13 @@ $space-sm: 8px;
 $space-md: 16px;
 $space-lg: 32px;
 $space-xl: 64px;
+
+//*-------------------------------------------------------- *//
+// Z-INDEX ------------------------------------------------  //
+$z-content: 0;
+$z-canvas: 10;
+$z-header: 20;
+$z-notification: 30;
+$z-tooltip: 40;
+$z-menu: 50;
+$z-max: 9999;

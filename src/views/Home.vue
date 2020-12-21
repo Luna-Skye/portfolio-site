@@ -1,15 +1,15 @@
 //* ------------------------------------------------------- *//
 //  ------------------- HTML TEMPLATING -------------------  //
 <template>
-  <div id="home" class="view acrylic" @mousemove="calculateParallax">
+  <div id="home" class="view acrylic" @mousemove="mouseParallax.calc">
     <!-- LOGO HEADER -->
     <div id="header" class="no-select">
       <img
         src="@/assets/logo.svg"
         alt="Sepshun Logo"
         :style="{
-          marginLeft: `${parallaxX / 60}px`,
-          marginTop: `${parallaxY / 60}px`
+          marginTop: `${mouseParallax.y / 60}px`,
+          marginLeft: `${mouseParallax.x / 60}px`
         }"
       >
     </div>
@@ -20,15 +20,15 @@
         <p
           class="text-h2 col-black no-select --overlay"
           :style="{
-            top: `${parallaxY / 60}px`,
-            left: `${parallaxX / 60}px`
+            top: `${mouseParallax.y / 60}px`,
+            left: `${mouseParallax.x / 60}px`
           }"
         >{{ Array.isArray(event.splash) ? event.splash[1] : event.splash }}</p>
         <p
           class="text-h2 col-white no-select --overlay"
           :style="{
-            top: `${parallaxY / 40}px`,
-            left: `${parallaxX / 40}px`
+            top: `${mouseParallax.y / 40}px`,
+            left: `${mouseParallax.x / 40}px`
           }"
         >{{ Array.isArray(event.splash) ? event.splash[0] : event.splash }}</p>
       </div>
@@ -63,56 +63,34 @@
 //* ------------------------------------------------------- *//
 //  --------------------- VUE SCRIPT ----------------------  //
 <script lang="ts">
-import P5 from 'p5'
 import { getEvent, EventObject } from '@/utils/eventHandler'
-import { Component, Vue } from 'vue-property-decorator'
+import { MouseParallax } from '@/utils/parallax'
 
+import { Component, Vue } from 'vue-property-decorator'
 @Component({})
 export default class Home extends Vue {
-  // ------------------------------------------------------ *//
-  // P5 Canvas List
-  p5Canvas: P5[] = []
-
-  // ------------------------------------------------------ *//
-  // Parallax Offsets
-  parallaxX = 0
-  parallaxY = 0
-  calculateParallax (event: MouseEvent) {
-    this.parallaxX = (event.clientX - (document.body.clientWidth) / 2)
-    this.parallaxY = (event.clientY - (document.body.clientHeight) / 2)
-  }
+  mouseParallax = new MouseParallax()
 
   // ------------------------------------------------------ *//
   // COMPUTED | Get EventName
   get event (): EventObject { return getEvent() }
-
-  // ------------------------------------------------------ *//
-  // LIFECYCLE | Created
-  created () {
-    // Create P5 Canvases
-    for (const i in getEvent().p5) this.p5Canvas.push(new P5(getEvent().p5[i]))
-  }
-
-  // LIFECYCLE | Destroyed
-  beforeDestroy () {
-    // Remove All P5 Canvases
-    for (const i in this.p5Canvas) this.p5Canvas[i].remove()
-  }
 }
 </script>
 
 //* ------------------------------------------------------- *//
 //  -------------------- SCSS STYLING ---------------------  //
 <style lang="scss">
-@import '../styles/styles.scss';
-
 #header {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
-  img { width: 256px; }
+  z-index: $z-header;
+  img {
+    width: 256px;
+    transition: width 0.15s ease-in-out;
+    &:hover { width: 288px; }
+  }
 }
 
 .--overlay {
